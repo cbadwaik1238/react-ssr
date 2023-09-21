@@ -20,6 +20,13 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+    - name: Clear Action Cache
+      run: |
+        rm -rf $RUNNER_TOOL_CACHE
+      env:
+        RUNNER_TOOL_CACHE: ${{ runner.tool_cache }}
+
+    
     - name: Use Python 3.0.1
       uses: actions/setup-python@v2
       with:
