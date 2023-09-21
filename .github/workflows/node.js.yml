@@ -27,10 +27,10 @@ jobs:
         RUNNER_TOOL_CACHE: ${{ runner.tool_cache }}
 
     
-    - name: Use Python 3.1
+    - name: Use Python 2.9
       uses: actions/setup-python@v2
       with:
-        python-version: 3.1  # Replace 'x' with the desired Python 3 version (e.g., 3.8)
+        python-version: 2.9  # Replace 'x' with the desired Python 3 version (e.g., 3.8)
 
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -38,5 +38,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install --python=python3.1
+    - run: npm install --python=python2.9
     - run: npm run build --if-present
